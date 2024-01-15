@@ -7,7 +7,7 @@ import {cn} from "@/lib/utils";
 
 import {Button} from "./ui/button";
 
-export default function MobileMenu() {
+export default function MobileMenu({links}: {links: {name: string; href: string}[]}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -28,36 +28,15 @@ export default function MobileMenu() {
           },
         )}
       >
-        <Link
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white"
-          href="#"
-        >
-          Dashboard
-        </Link>
-        <Link
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white"
-          href="#"
-        >
-          Transactions
-        </Link>
-        <Link
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white"
-          href="#"
-        >
-          Budgeting
-        </Link>
-        <Link
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white"
-          href="#"
-        >
-          Reports
-        </Link>
-        <Link
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white"
-          href="#"
-        >
-          Login
-        </Link>
+        {links.map((link) => (
+          <Link
+            key={link.name}
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white"
+            href={link.href}
+          >
+            {link.name}
+          </Link>
+        ))}
         <Button asChild>
           <Link className="m-2" href="#">
             Sign Up

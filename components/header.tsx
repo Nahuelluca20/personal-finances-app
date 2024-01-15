@@ -4,6 +4,29 @@ import {DollarSign} from "lucide-react";
 import {Button} from "./ui/button";
 import MobileMenu from "./mobile-menu";
 
+const links = [
+  {
+    name: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    name: "Transactions",
+    href: "/transactions",
+  },
+  {
+    name: "Budgeting",
+    href: "/budgeting",
+  },
+  {
+    name: "Reports",
+    href: "/reports",
+  },
+  {
+    name: "Login",
+    href: "/login",
+  },
+];
+
 export default function Header() {
   return (
     <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
@@ -16,26 +39,20 @@ export default function Header() {
         <h1>FinanceApp</h1>
       </Link>
 
-      <MobileMenu />
+      <MobileMenu links={links} />
 
       <nav className="ml-auto items-center gap-4 sm:gap-6 hidden md:flex">
-        <Link className="text-md font-medium hover:underline underline-offset-4" href="#">
-          Dashboard
-        </Link>
-        <Link className="text-md font-medium hover:underline underline-offset-4" href="#">
-          Transactions
-        </Link>
-        <Link className="text-md font-medium hover:underline underline-offset-4" href="#">
-          Budgeting
-        </Link>
-        <Link className="text-md font-medium hover:underline underline-offset-4" href="#">
-          Reports
-        </Link>
-        <Link className="text-md font-medium hover:underline underline-offset-4" href="#">
-          Login
-        </Link>
+        {links.map((link) => (
+          <Link
+            key={link.name}
+            className="text-sm font-medium hover:underline underline-offset-4"
+            href={link.href}
+          >
+            {link.name}
+          </Link>
+        ))}
         <Button asChild>
-          <Link className="text-md font-medium" href="#">
+          <Link className="text-sm font-medium" href="#">
             Sign Up
           </Link>
         </Button>
