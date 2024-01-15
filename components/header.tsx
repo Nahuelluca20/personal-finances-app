@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {DollarSign, Menu} from "lucide-react";
+import {DollarSign} from "lucide-react";
 
 import {Button} from "./ui/button";
 import MobileMenu from "./mobile-menu";

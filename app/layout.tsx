@@ -6,6 +6,7 @@ import {Inter as FontSans} from "next/font/google";
 
 import {cn} from "@/lib/utils";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -20,9 +21,15 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+      <body
+        className={cn(
+          "min-h-screen flex flex-col bg-background font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
         <Header />
-        {children}
+        <div className="flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );
