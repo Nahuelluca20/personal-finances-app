@@ -35,8 +35,8 @@ export default function Header() {
         <span className="sr-only">FinanceApp</span>
       </Link>
 
-      <Link className="md:hidden" href="#">
-        <h1>FinanceApp</h1>
+      <Link className="md:hidden" href="/">
+        <h1 className="text-xl font-bold">FinanceApp</h1>
       </Link>
 
       <MobileMenu links={links} />
@@ -52,7 +52,7 @@ export default function Header() {
           </Link>
         ))}
         <Button asChild>
-          <Link className="text-sm font-medium" href="#">
+          <Link className="text-sm font-medium" href="/signup">
             Sign Up
           </Link>
         </Button>

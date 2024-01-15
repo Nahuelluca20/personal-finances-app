@@ -38,7 +38,7 @@ export default function MobileMenu({links}: {links: {name: string; href: string}
           </Link>
         ))}
         <Button asChild>
-          <Link className="m-2" href="#">
+          <Link className="m-2" href="/signup">
             Sign Up
           </Link>
         </Button>
