@@ -1,14 +1,37 @@
 "use client";
 import {Menu} from "lucide-react";
 import Link from "next/link";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 import {cn} from "@/lib/utils";
 
 import {Button} from "./ui/button";
 
-export default function MobileMenu({links}: {links: {name: string; href: string}[]}) {
+export default function MobileMenu({
+  links,
+  children,
+}: {
+  links: {name: string; href: string}[];
+  children: React.ReactNode;
+}) {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("click", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [isOpen]);
 
   return (
     <nav className="md:hidden">
@@ -21,6 +44,7 @@ export default function MobileMenu({links}: {links: {name: string; href: string}
         <Menu />
       </Button>
       <div
+        ref={menuRef}
         className={cn(
           "absolute right-4 mt-2 w-48 bg-white border border-gray-200 rounded shadow-xl",
           {
@@ -37,11 +61,7 @@ export default function MobileMenu({links}: {links: {name: string; href: string}
             {link.name}
           </Link>
         ))}
-        <Button asChild>
-          <Link className="m-2" href="/signin">
-            Sign In
-          </Link>
-        </Button>
+        <div className="m-2">{children}</div>
       </div>
     </nav>
   );

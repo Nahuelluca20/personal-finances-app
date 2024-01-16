@@ -3,6 +3,7 @@ import {DollarSign} from "lucide-react";
 
 import {Button} from "./ui/button";
 import MobileMenu from "./mobile-menu";
+import SigninButton from "./signin-button";
 
 const links = [
   {
@@ -35,7 +36,9 @@ export default function Header() {
         <h1 className="text-xl font-bold">FinanceApp</h1>
       </Link>
 
-      <MobileMenu links={links} />
+      <MobileMenu links={links}>
+        <SigninButton />
+      </MobileMenu>
 
       <nav className="ml-auto items-center gap-4 sm:gap-6 hidden md:flex">
         {links.map((link) => (
