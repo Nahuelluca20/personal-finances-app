@@ -30,7 +30,7 @@ const links = [
 export default function Header() {
   return (
     <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
-      <Link className="flex w-[40px] items-center justify-center" href="#">
+      <Link className="flex w-[40px] items-center justify-center" href="/">
         <DollarSign className="h-6 w-6" />
         <span className="sr-only">FinanceApp</span>
       </Link>
