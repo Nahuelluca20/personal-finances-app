@@ -1,17 +1,32 @@
 import {Button} from "@/components/ui/button";
-import {signIn} from "@/auth/auth";
+import {auth, signIn, signOut} from "@/auth/auth";
 
-export default function page() {
+export default async function page() {
+  const session = await auth();
+
   return (
     <main>
-      <form
-        action={async () => {
-          "use server";
-          await signIn();
-        }}
-      >
-        <Button>Sign in</Button>
-      </form>
+      <>
+        {session !== null ? (
+          <form
+            action={async () => {
+              "use server";
+              await signOut({redirectTo: "/"});
+            }}
+          >
+            <Button>Log Out</Button>
+          </form>
+        ) : (
+          <form
+            action={async () => {
+              "use server";
+              await signIn();
+            }}
+          >
+            <Button>Sign in</Button>
+          </form>
+        )}
+      </>
     </main>
   );
 }

@@ -21,10 +21,6 @@ const links = [
     name: "Reports",
     href: "/reports",
   },
-  {
-    name: "Login",
-    href: "/login",
-  },
 ];
 
 export default function Header() {
@@ -52,8 +48,8 @@ export default function Header() {
           </Link>
         ))}
         <Button asChild>
-          <Link className="text-sm font-medium" href="/signup">
-            Sign Up
+          <Link className="text-sm font-medium" href="/signin">
+            Sign In
           </Link>
         </Button>
       </nav>
