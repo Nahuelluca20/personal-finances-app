@@ -50,11 +50,7 @@ export default function Header() {
             {link.name}
           </Link>
         ))}
-        <Button asChild>
-          <Link className="text-sm font-medium" href="/signin">
-            Sign In
-          </Link>
-        </Button>
+        <SigninButton />
       </nav>
     </header>
   );

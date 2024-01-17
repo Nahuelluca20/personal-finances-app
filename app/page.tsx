@@ -1,9 +1,17 @@
 import {CreditCard, FileText, PieChart} from "lucide-react";
 import Link from "next/link";
+import {redirect} from "next/navigation";
 
 import SigninButton from "@/components/signin-button";
+import {auth} from "@/auth/auth";
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
+
+  if (session) {
+    return redirect("/dashboard");
+  }
+
   return (
     <main>
       <section className="w-full py-6 sm:py-12 md:py-24 lg:py-32 xl:py-48">
