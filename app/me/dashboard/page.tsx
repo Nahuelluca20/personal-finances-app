@@ -1,5 +1,7 @@
-import InfoCard from "@/components/info-card";
+import InfoCard from "@/app/me/dashboard/components/info-card";
 import {TableHeader, TableRow, TableHead, TableBody, TableCell, Table} from "@/components/ui/table";
+
+import TableInfo from "./components/table-info";
 
 let cardsInfo = [
   {
@@ -20,6 +22,14 @@ let cardsInfo = [
   },
 ];
 
+let tableHeadersFinancialInfo = ["Date", "Description", "Amount"];
+
+let tableFinancialInfo = [
+  ["Jan 1, 2024", "Groceries", "$100.00"],
+  ["Jan 2, 2024", "Rent", "$1000.00"],
+  ["Jan 3, 2024", "Movie Tickets	", "$30.00"],
+];
+
 export default function page() {
   return (
     <div className="space-y-5">
@@ -34,40 +44,15 @@ export default function page() {
       </div>
 
       <section aria-labelledby="transaction-history-heading" className="space-y-2" role="region">
-        <h2 className="font-semibold text-lg md:text-xl" id="transaction-history-heading">
-          Transaction History
-        </h2>
-        <div className="border shadow-sm rounded-lg">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Date</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>Amount</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell>Jan 1, 2024</TableCell>
-                <TableCell>Groceries</TableCell>
-                <TableCell>$100.00</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Jan 2, 2024</TableCell>
-                <TableCell>Rent</TableCell>
-                <TableCell>$1000.00</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Jan 3, 2024</TableCell>
-                <TableCell>Movie Tickets</TableCell>
-                <TableCell>$30.00</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </div>
+        <TableInfo
+          labelId="transaction-history-heading"
+          tableHeaders={tableHeadersFinancialInfo}
+          tableRowsData={tableFinancialInfo}
+          tableTitle="Transaction History"
+        />
       </section>
 
-      <section aria-labelledby="financial-goals-heading" className="space-y-2">
+      {/* <section aria-labelledby="financial-goals-heading" className="space-y-2">
         <h2 className="font-semibold text-lg md:text-xl" id="financial-goals-heading">
           Financial Goals
         </h2>
@@ -101,7 +86,7 @@ export default function page() {
             </TableBody>
           </Table>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
