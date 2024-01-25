@@ -3,6 +3,7 @@ import {randomUUID} from "crypto";
 import {sqliteTable, text} from "drizzle-orm/sqlite-core";
 
 import {users} from "./users";
+import {categories} from "./categories";
 
 export const transactions = sqliteTable("transactions", {
   id: text("id", {length: 36})
@@ -12,7 +13,9 @@ export const transactions = sqliteTable("transactions", {
   user_id: text("user_id", {length: 36})
     .notNull()
     .references(() => users.id, {onDelete: "cascade"}),
-  category_id: text("category_id", {length: 36}).notNull(),
+  category_id: text("category_id", {length: 36})
+    .notNull()
+    .references(() => categories.id, {onDelete: "cascade"}),
   amount: text("amount", {length: 100}).notNull(),
   description: text("description", {length: 255}).notNull(),
   date: text("date", {length: 100}).notNull(),
