@@ -8,9 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "drizzle-kit generate:sqlite",
-    "push": "drizzle-kit push:sqlite",
-    "migrate": "yarn tsc ./migrate.ts"
+    "generate": "drizzle-kit generate:sqlite --schema=src/schema.ts",
+    "up": "drizzle-kit up:sqlite --schema=src/schema.ts"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^0.3.14",

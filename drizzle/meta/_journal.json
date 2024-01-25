@@ -5,43 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1705341678725,
-      "tag": "0000_chemical_gladiator",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1705364424294,
-      "tag": "0001_classy_shockwave",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1706210145712,
-      "tag": "0002_odd_junta",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1706210383575,
-      "tag": "0003_great_madame_masque",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "5",
-      "when": 1706210886971,
-      "tag": "0004_plain_angel",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "5",
-      "when": 1706210903488,
-      "tag": "0005_oval_thunderbolt_ross",
+      "when": 1706218253651,
+      "tag": "0000_numerous_the_executioner",
       "breakpoints": true
     }
   ]
