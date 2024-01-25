@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {DollarSign} from "lucide-react";
 
-import {Button} from "./ui/button";
 import MobileMenu from "./mobile-menu";
 import SigninButton from "./signin-button";
 

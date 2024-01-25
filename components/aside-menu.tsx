@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   BellIcon,
-  CreditCardIcon,
   DollarSignIcon,
   HomeIcon,
   LineChartIcon,
@@ -19,7 +18,7 @@ const links = [
   },
   {
     name: "Dashboard",
-    href: "info",
+    href: "dashboard",
     icon: <LineChartIcon className="h-4 w-4" />,
   },
   // {
