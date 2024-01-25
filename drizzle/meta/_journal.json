@@ -29,6 +29,20 @@
       "when": 1706210383575,
       "tag": "0003_great_madame_masque",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1706210886971,
+      "tag": "0004_plain_angel",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1706210903488,
+      "tag": "0005_oval_thunderbolt_ross",
+      "breakpoints": true
     }
   ]
 }
