@@ -1,5 +1,4 @@
 import InfoCard from "@/app/me/dashboard/components/info-card";
-import {TableHeader, TableRow, TableHead, TableBody, TableCell, Table} from "@/components/ui/table";
 
 import TableInfo from "./components/table-info";
 

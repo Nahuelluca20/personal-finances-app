@@ -15,6 +15,13 @@
       "when": 1705364424294,
       "tag": "0001_classy_shockwave",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1706210145712,
+      "tag": "0002_odd_junta",
+      "breakpoints": true
     }
   ]
 }
