@@ -1,9 +1,14 @@
 import AsideMenu from "@/components/aside-menu";
+import SearchBar from "@/components/search-bar";
 
-export default function Layout() {
+export default function Layout({children}: {children: React.ReactNode}) {
   return (
-    <div>
+    <main className="flex">
       <AsideMenu />
-    </div>
+      <section className="w-full">
+        <SearchBar />
+        <div className="p-10">{children}</div>
+      </section>
+    </main>
   );
 }
