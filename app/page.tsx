@@ -11,7 +11,7 @@ export default async function Home() {
   const session = await auth();
 
   if (session) {
-    return redirect("/me/home");
+    return redirect("/me/dashboard");
   }
 
   return (

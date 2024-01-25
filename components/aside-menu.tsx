@@ -1,9 +1,10 @@
 import Link from "next/link";
 import {
   BellIcon,
+  CreditCardIcon,
   DollarSignIcon,
+  FlagIcon,
   HomeIcon,
-  LineChartIcon,
   Package2,
   PieChartIcon,
 } from "lucide-react";
@@ -12,20 +13,20 @@ import {Button} from "./ui/button";
 
 const links = [
   {
-    name: "Home",
-    href: "home",
-    icon: <HomeIcon className="h-4 w-4" />,
-  },
-  {
     name: "Dashboard",
     href: "dashboard",
-    icon: <LineChartIcon className="h-4 w-4" />,
+    icon: <HomeIcon className="h-4 w-4" />,
   },
   // {
-  //   name: "Transactions",
-  //   href: "#",
-  //   icon: CreditCardIcon,
+  //   name: "Dashboard",
+  //   href: "dashboard",
+  //   icon: <LineChartIcon className="h-4 w-4" />,
   // },
+  {
+    name: "Transactions",
+    href: "transactions",
+    icon: <CreditCardIcon className="h-4 w-4" />,
+  },
   {
     name: "Budget",
     href: "budget",
@@ -35,6 +36,11 @@ const links = [
     name: "Categories",
     href: "categories",
     icon: <PieChartIcon className="h-4 w-4" />,
+  },
+  {
+    name: "Goals",
+    href: "goals",
+    icon: <FlagIcon className="h-4 w-4" />,
   },
 ];
 
