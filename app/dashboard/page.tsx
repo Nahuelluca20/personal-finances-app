@@ -1,5 +1,5 @@
-import AsideMenu from "@/components/aside-menu";
+import {redirect} from "next/navigation";
 
-export default async function page() {
-  return <main>{/* <AsideMenu /> */}</main>;
+export default function page() {
+  return redirect("/dashboard/home");
 }
