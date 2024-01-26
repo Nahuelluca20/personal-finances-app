@@ -18,26 +18,26 @@ export const authConfig = {
       },
     }),
   ],
-  cookies: {
-    csrfToken: {
-      name: "next-auth.csrf-token",
-      options: {
-        httpOnly: true,
-        sameSite: "none",
-        path: "/",
-        secure: true,
-      },
-    },
-    pkceCodeVerifier: {
-      name: "next-auth.pkce.code_verifier",
-      options: {
-        httpOnly: true,
-        sameSite: "none",
-        path: "/",
-        secure: true,
-      },
-    },
-  },
+  // cookies: {
+  //   csrfToken: {
+  //     name: "next-auth.csrf-token",
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: "none",
+  //       path: "/",
+  //       secure: true,
+  //     },
+  //   },
+  //   pkceCodeVerifier: {
+  //     name: "next-auth.pkce.code_verifier",
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: "none",
+  //       path: "/",
+  //       secure: true,
+  //     },
+  //   },
+  // },
   adapter: DrizzleAdapter(db),
   callbacks: {
     async session({session, user}) {
@@ -53,8 +53,6 @@ export const authConfig = {
       if (isProtected && !isLoggedIn) {
         const redirectUrl = new URL("/signin", nextUrl.origin);
 
-        // redirectUrl.searchParams.append("callbackUrl", nextUrl.href);
-
         return Response.redirect(redirectUrl);
       }
 
@@ -64,3 +62,7 @@ export const authConfig = {
 } satisfies NextAuthConfig;
 
 export const {handlers, auth, signIn, signOut} = NextAuth(authConfig);
+
+// const session = await auth();
+
+// export const userId = session?.user?.email && (await getUserId(session?.user?.email));

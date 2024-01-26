@@ -1,6 +1,6 @@
 "use server";
 
-import {desc, eq} from "drizzle-orm";
+import {desc, eq, sum} from "drizzle-orm";
 
 import {db} from "@/db";
 import {transactions as transactionsTable} from "@/db/schema/transactions";
@@ -24,4 +24,18 @@ export async function getLastTransactions(userId: string) {
     .limit(5);
 
   return transactions;
+}
+
+export async function getBalance(userId: string, typeCard: string) {
+  switch (true) {
+    case typeCard === "expenses":
+      const balance = await db
+        .select({
+          balance: sum(transactionsTable.amount),
+        })
+        .from(transactionsTable)
+        .where(eq(transactionsTable.user_id, userId));
+
+      return {amount: balance[0].balance || "", typeBalance: "Expenses"};
+  }
 }

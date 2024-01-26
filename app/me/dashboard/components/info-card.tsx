@@ -5,7 +5,7 @@ export default function InfoCard({title, description}: {title: string; descripti
     <Card>
       <CardHeader>
         <CardDescription>{description}</CardDescription>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle>$ {title}</CardTitle>
       </CardHeader>
     </Card>
   );
