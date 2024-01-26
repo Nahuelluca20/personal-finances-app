@@ -12,10 +12,10 @@ export const transactions = sqliteTable("transactions", {
     .primaryKey(),
   user_id: text("user_id", {length: 36})
     .notNull()
-    .references(() => users.id, {onDelete: "cascade"}),
+    .references(() => users.id),
   category_id: text("category_id", {length: 36})
     .notNull()
-    .references(() => categories.id, {onDelete: "cascade"}),
+    .references(() => categories.id),
   amount: text("amount", {length: 100}).notNull(),
   description: text("description", {length: 255}).notNull(),
   date: text("date", {length: 100}).notNull(),

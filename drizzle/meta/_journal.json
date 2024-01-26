@@ -8,6 +8,34 @@
       "when": 1706218253651,
       "tag": "0000_numerous_the_executioner",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1706221842097,
+      "tag": "0001_smart_boom_boom",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1706225400796,
+      "tag": "0002_light_peter_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1706225540011,
+      "tag": "0003_lovely_masque",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1706227087391,
+      "tag": "0004_heavy_power_pack",
+      "breakpoints": true
     }
   ]
 }

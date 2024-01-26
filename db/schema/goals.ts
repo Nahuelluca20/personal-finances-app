@@ -12,10 +12,10 @@ export const goals = sqliteTable("goals", {
     .primaryKey(),
   user_id: text("user_id", {length: 36})
     .notNull()
-    .references(() => users.id, {onDelete: "cascade"}),
+    .references(() => users.id),
   category_id: text("category_id", {length: 36})
     .notNull()
-    .references(() => categories.id, {onDelete: "cascade"}),
+    .references(() => categories.id),
   target_amount: text("target_amount", {length: 100}).notNull(),
   current_amount: text("current_amount", {length: 100}).notNull(),
   goal: text("goal", {length: 100}).notNull(),
