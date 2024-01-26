@@ -7,6 +7,6 @@ export const categories = sqliteTable("categories", {
     .$defaultFn(() => randomUUID())
     .notNull()
     .primaryKey(),
-  categoty_name: text("name", {length: 100}).notNull(),
+  category_name: text("name", {length: 100}).notNull(),
   description: text("description", {length: 255}).notNull(),
 });

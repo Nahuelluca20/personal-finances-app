@@ -10,12 +10,8 @@ export const transactions = sqliteTable("transactions", {
     .$defaultFn(() => randomUUID())
     .notNull()
     .primaryKey(),
-  user_id: text("user_id", {length: 36})
-    .notNull()
-    .references(() => users.id),
-  category_id: text("category_id", {length: 36})
-    .notNull()
-    .references(() => categories.id),
+  user_id: text("user_id", {length: 36}).references(() => users.id),
+  category_id: text("category_id", {length: 36}).references(() => categories.id),
   amount: text("amount", {length: 100}).notNull(),
   description: text("description", {length: 255}).notNull(),
   date: text("date", {length: 100}).notNull(),

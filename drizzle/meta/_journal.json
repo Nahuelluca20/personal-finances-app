@@ -36,6 +36,34 @@
       "when": 1706227087391,
       "tag": "0004_heavy_power_pack",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1706236595645,
+      "tag": "0005_warm_doomsday",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1706236684491,
+      "tag": "0006_flowery_shiver_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1706237030712,
+      "tag": "0007_regular_demogoblin",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1706237531945,
+      "tag": "0008_curvy_franklin_storm",
+      "breakpoints": true
     }
   ]
 }
