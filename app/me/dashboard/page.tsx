@@ -1,6 +1,9 @@
 import InfoCard from "@/app/me/dashboard/components/info-card";
+import {auth} from "@/auth/auth";
+import {getUserId} from "@/app/utils-queries";
 
 import TableInfo from "./components/table-info";
+import {getLastTransactions} from "./queries";
 
 let cardsInfo = [
   {
@@ -29,7 +32,15 @@ let tableFinancialInfo = [
   ["Jan 3, 2024", "Movie Tickets	", "$30.00"],
 ];
 
-export default function page() {
+export default async function page() {
+  const session = await auth();
+
+  const userId = session?.user?.email && (await getUserId(session?.user?.email));
+
+  const dataTransactions = userId && (await getLastTransactions(userId[0].id));
+
+  console.log(dataTransactions);
+
   return (
     <div className="space-y-5">
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
