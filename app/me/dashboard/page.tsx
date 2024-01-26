@@ -24,14 +24,6 @@ let cardsInfo = [
   },
 ];
 
-let tableHeadersFinancialInfo = ["Date", "Description", "Amount"];
-
-let tableFinancialInfo = [
-  ["Jan 1, 2024", "Groceries", "$100.00"],
-  ["Jan 2, 2024", "Rent", "$1000.00"],
-  ["Jan 3, 2024", "Movie Tickets	", "$30.00"],
-];
-
 export default async function page() {
   const session = await auth();
 
@@ -39,7 +31,15 @@ export default async function page() {
 
   const dataTransactions = userId && (await getLastTransactions(userId[0].id));
 
-  console.log(dataTransactions);
+  const serializedData =
+    dataTransactions &&
+    dataTransactions.map((item) => ({
+      date: item.date,
+      description: item.description,
+      amount: item.amount,
+      category_name: item.categories?.category_name || "",
+      category_description: item.categories?.category_name_description || "",
+    }));
 
   return (
     <div className="space-y-5">
@@ -54,49 +54,27 @@ export default async function page() {
       </div>
 
       <section aria-labelledby="transaction-history-heading" className="space-y-2" role="region">
-        <TableInfo
-          labelId="transaction-history-heading"
-          tableHeaders={tableHeadersFinancialInfo}
-          tableRowsData={tableFinancialInfo}
-          tableTitle="Transaction History"
-        />
+        {serializedData && (
+          <TableInfo
+            labelId="transaction-history-heading"
+            tableHeaders={[
+              "Date",
+              "Description",
+              "Amount",
+              "Category Name",
+              "Category Description",
+            ]}
+            tableRowsData={serializedData.map((item) => [
+              item.date,
+              item.description,
+              item.amount,
+              item.category_name,
+              item.category_description,
+            ])}
+            tableTitle="Transaction History"
+          />
+        )}
       </section>
-
-      {/* <section aria-labelledby="financial-goals-heading" className="space-y-2">
-        <h2 className="font-semibold text-lg md:text-xl" id="financial-goals-heading">
-          Financial Goals
-        </h2>
-        <div className="border shadow-sm rounded-lg">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Goal</TableHead>
-                <TableHead>Target Amount</TableHead>
-                <TableHead>Current Amount</TableHead>
-                <TableHead>Progress</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell>Emergency Fund</TableCell>
-                <TableCell>$5000.00</TableCell>
-                <TableCell>$2000.00</TableCell>
-                <TableCell>
-                  <div className="w-full h-2 rounded-md bg-gray-200" />
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Vacation</TableCell>
-                <TableCell>$2000.00</TableCell>
-                <TableCell>$500.00</TableCell>
-                <TableCell>
-                  <div className="w-full h-2 rounded-md bg-gray-200" />
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </div>
-      </section> */}
     </div>
   );
 }
